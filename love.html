@@ -1,0 +1,131 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Letter 💌</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Georgia', serif;
+      background: #fbeec1;
+      overflow: hidden;
+    }
+
+    .letter {
+      width: 700px;
+      height: 420px;
+      background: #fff8dc;
+      padding: 20px;
+      display: flex;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .text {
+      flex: 2;
+      padding-right: 20px;
+      overflow-y: auto;
+    }
+
+    .text h2 { margin-top: 0; }
+
+    .image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* buttons */
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #ff4b5c;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* moving button */
+    .move {
+      position: absolute;
+    }
+
+    /* hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: floatUp 4s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter">
+    <div class="text">
+      <h2>My Dearest Preetii❤️</h2>
+      <p>
+        I know you're upset right now, and I just want to say I'm really sorry.
+        You mean the world to me, and seeing you sad hurts me too veryy badlyy.
+      </p>
+      <p>
+        I love your smile, your voice, and even your little anger 😄
+        Please don't stay mad for too long.
+        Talk with me naaa.
+        It is feeling sooo soooo lonelyy
+        I am missing my sanu a lott.
+      </p>
+      <p>
+        I am really sorry for being idiot sometime.
+        But Out of all this chaos I love youu mam My preetii 💖
+      </p>
+
+      <button class="btn move" id="noBtn">Don't be mad 😢</button>
+      <button class="btn" onclick="forgive()">Okay I forgive you ❤️</button>
+    </div>
+
+    <div class="image">
+      <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/473060259_1292593615343651_7012027139655304197_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=KPAb2SEAQZIQ7kNvwHA0vaO&_nc_oc=Adrd3OWoORe7PVvujZcj9vEWZ3bzjcE22zWhnaF1jPtxIGKcFsylI7SfFWw_idL2Dtl1BTf47PUGktxyr0dhzWF1&_nc_zt=23&_nc_ht=scontent.fktm3-1.fna&_nc_gid=5QFXE7l_XdjxIMkTwxdyAg&_nc_ss=8&oh=00_Afyyc-jfXilHOZwkSG8Yt_Sbm2Mt5s3T2duA7bWAwLpt5g&oe=69C186A5" alt="Her Photo">
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.top = Math.random() * 300 + "px";
+      noBtn.style.left = Math.random() * 300 + "px";
+    });
+
+    function forgive() {
+      alert("Yayyy 😍 I love you so much ❤️");
+    }
+
+    // floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }, 400);
+  </script>
+</body>
+</html>
